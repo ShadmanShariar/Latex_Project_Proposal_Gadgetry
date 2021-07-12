@@ -1,0 +1,240 @@
+% Universidade Estadual de Feira de Santana
+% Modelo de Proposta de Dissertação de Mestrado em Ciencia da Computacao
+% Adaptado por: José Amancio e Roberto Bittencourt, UEFS
+% Trabalho original feito por: Ana Cristina Alves de Oliveira (cristina@dsc.ufcg.edu.br)
+% Orientador: Francisco Brasileiro
+% em Fevereiro de 2020
+% Agosto de 2019
+
+% E necessario o arquivo "algorithmic.sty", se for construir algoritmos
+
+\documentclass[a4paper,titlepage,12pt]{article}
+\usepackage{color}
+\usepackage{longtable}
+\usepackage[brazil,english]{babel}
+\usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{fancyheadings}
+\usepackage{fancyvrb}
+
+\usepackage{algorithmic}
+\usepackage[nothing]{algorithm}
+\usepackage{latexsym}
+
+\usepackage{graphicx,url}
+
+% para uso de referência direta e indireta, com \citet, \citep, etc.
+\usepackage[round]{natbib}
+
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage{lipsum}
+
+\sloppy
+
+% Comandos de estilo e espacamento ----------------------------------------
+\newlength{\defbaselineskip}
+\setlength{\defbaselineskip}{\baselineskip}
+\newcommand{\setlinespacing}[1]%
+  {\setlength{\baselineskip}{#1 \defbaselineskip}}
+
+\setcounter{topnumber}{2}
+\renewcommand{\topfraction}{.7}
+\setcounter{bottomnumber}{1}
+\renewcommand{\bottomfraction}{.3}
+\setcounter{totalnumber}{3}
+\renewcommand{\textfraction}{.2}
+\renewcommand{\floatpagefraction}{.5}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{.7}
+\renewcommand{\dblfloatpagefraction}{.5}
+%
+\oddsidemargin -28pt
+\evensidemargin -28pt
+\marginparwidth 50pt
+\marginparsep 5pt
+\topmargin -27pt
+\hoffset 15mm
+\textheight 237mm
+\textwidth 155mm
+\renewcommand{\baselinestretch}{1.5}
+%
+
+% ------------------------------------------------------------------------
+
+%%%%%  Ambiente de redefinicoes para construcao de Algoritmos
+% Apenas usar se precisar fazer algoritmos
+
+\renewcommand{\algorithmicend}{\textbf{fim}}
+\renewcommand{\algorithmicwhen}{\textbf{quando}}
+\renewcommand{\algorithmicprimitive}{\textbf{in?cio}}
+\renewcommand{\algorithmicendprimitive}{\textbf{fim}}
+\renewcommand{\algorithmicendwhen}{\textbf{fim}}
+\renewcommand{\algorithmicif}{\textbf{se}}
+\renewcommand{\algorithmicthen}{\textbf{ent\~{a}o}}
+\renewcommand{\algorithmicelse}{\textbf{sen\~{a}o}}
+\renewcommand{\algorithmicendif}{\textbf{fim-se}}
+\renewcommand{\algorithmicelsif}{\algorithmicelse\ \algorithmicif}
+\renewcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+\renewcommand{\algorithmicforall}{\textbf{paratodos}}
+\renewcommand{\algorithmicdo}{\textbf{fa\c{c}a}}
+\renewcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+\renewcommand{\algorithmicloop}{\textbf{loop}}
+\renewcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+\renewcommand{\algorithmicrepeat}{\textbf{repita}}
+\renewcommand{\algorithmicuntil}{\textbf{at\'{e}}}
+\renewcommand{\algorithmicwaituntil}{\textbf{espera at?}}
+\floatname{algorithm}{Algoritmo}
+
+%%%%%%
+
+% Color definitions (RGB model)
+\definecolor{mycolor1}{rgb}{0.753,0.753,0.753}
+\begin{document}
+% Primeira Folha do Documento %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+\begin{center}
+\includegraphics[width=3cm,height=4cm]{nsu.png}
+\end{center}
+\begin{center}
+{\textbf{\LARGE \textsc{North South University}}}
+\end{center}
+\begin{center}
+{\Large \textsc{\textbf{Computer Science And Engineering}}}
+\end{center}
+~\\ \\
+\begin{center}
+{\LARGE \textsc{\textbf{Project - Online Gadget Store}}}
+\end{center}
+~\\ 
+\begin{center}
+{\Large \textsc{\textbf{Group - 8}}}
+\end{center}
+\begin{center}
+{\Large \textsc{\textbf{Shadman Shariar - 1911457642}}}
+\end{center}
+
+\begin{center}
+{\Large \textsc{\textbf{Ehashanul Akter - 1912059642}}}
+\end{center}
+~\
+\begin{center}
+{\Large \textsc{\textbf{Course Code - CSE 311 }}}
+\end{center}
+~\
+\begin{center}
+{\Large \textsc{\textbf{Faculty - Ahmed Fahmin (Afn1) }}}
+\end{center}
+\begin{center}
+{\Large \textsc{\textbf{LAB Instructor - Nazmul Alam Dipto }}}
+\end{center}
+~\
+\begin{center}
+{\Large \textsc{\textbf{Submission Date - 12 /  07 / 2021 }}}
+\end{center}
+\newpage
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\selectlanguage{english}
+
+% ConFigura os números das páginas para algarismos romanos
+\pagestyle{plain}
+\pagenumbering{roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\begin{center}
+{\LARGE \color{airforceblue}\textsc\\{Introduction}}}
+\end{center}
+Online shopping system (GADGETRY) is the simple shopping solution. It’s a full-featured website and shopping cart system that bends over backwards to give you the flexibility you need to run your online store. This project is a web based shopping system. The basic concept of the application is to allow the customer to shop virtually using the internet and allow customers to buy the items and articles of their desire from the store. The main aim of “GADGETRY” is to improve the service of Customers and vendors. Here people easily can search and buy for any electrical items.
+~\\
+\begin{center}
+{\LARGE \color{airforceblue}\textsc{\textbf{Objective}}}
+\end{center}
+The main objective of this application is to make it interactive and its ease of use. It would make searching, viewing and selection of a product easier. It contains a sophisticated search
+engine for user's to search for products specific to their needs. The search engine provides an easy and convenient way to search for products where a user can Search for a product interactively and the search engine would refine the products available based on the user’s input. The user can then view the complete specification of each product. The main emphasis lies in providing a user friendly search engine for effectively showing the desired results and its drag and drop behavior. 
+~\\\\
+\textbf{Feature of GADGETRY:}
+
+\begin{enumerate}
+\item Secure registration and profile management facilities for Customer.
+\item Browsing through the email to see the items that are there in each category of products like Phone, Earphone, Keyboard, etc.
+\item Creating a shopping cart so that customer can Shop N number of items and checkout finally with the entire shopping cart.
+\item Secured mechanism for checking out from the shop (Credit card information). Updates to customers about the Recent i.
+
+~\pagebreak
+\begin{center}
+{\LARGE \color{airforceblue}\textsc{\textbf{Technology And System}}}
+\end{center}
+~\\
+\textbf{Front End:} HTML, CSS, JavaScript
+
+\begin{enumerate}
+\item \textbf{HTML:} HTML is used to create and save web document.
+\item \textbf{CSS:} Create attractive Layout.
+\item \textbf{JavaScript:} It is a programming Language, commonly use with web browser.
+\end{enumerate}
+
+
+
+
+~\\
+\textbf{Back End:} PHP, MySQL.
+
+\begin{enumerate}
+\item \textbf{PHP:} PHP is a technology  that allows software developers to create dynamically generated web page in HTML.
+\item \textbf{MySQL Server:} MySQL is a relational database management system. And its free.
+\end{enumerate}
+
+~\\
+\begin{right}
+{\large\textsc{\textbf{Features of MySQL}}}
+\end{center}
+~\\
+  \textbf{    Internals and portability :}
+
+\begin{enumerate}
+\item Written in C and C++
+\item Tatsted with a broad range and different compilers
+\item Works on many different platforms
+\item Tasted with purify
+\item Uses multi layered server design with independent modules
+\end{enumerate}
+
+\pagebreak\textbf{Security :} 
+
+\begin{enumerate}
+\item A privilege and password system that is very flexible ans secure and that enables host based verification
+\item Password security by encryption of all password traffic when you connect to a server
+\end{enumerate}
+
+
+\end{enumerate}
+~\\
+\textbf{Software Requirement: (ANYONE)}
+
+\begin{enumerate}
+\item XAMPP
+\item WAMP
+\item MAMP
+\item LAMP
+\end{enumerate}
+~\
+\begin{center}
+{\LARGE \color{airforceblue}\textsc{\textbf{Conclusion}}}
+\end{center}
+~\\
+Technology has made significant progress over the years to provide consumers a better online shopping experience and will continue to do so for years to come.  With the rapid growth of products and brands, people have speculated that online shopping will overtake in-store shopping.  While this has been the case in some areas, there is still demand for brick and mortar stores in market areas where the consumer feels more comfortable seeing and touching the product being bought.  However, the availability of online shopping has produced a more educated consumer that can shop around with relative ease without having to spend a large amount of time.  In exchange, online shopping has opened up doors to many small retailers that would never be in business if they had to incur the high cost of owning a brick and mortar store.  At the end, it has been a win-win situation for both consumer and sellers.
+
+
+\end{document}
